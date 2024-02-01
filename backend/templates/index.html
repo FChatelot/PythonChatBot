@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Python App</title>
+</head>
+<body>
+    <h1>Ma première app python</h1>
+        <table>
+            <thead>
+                <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for row in data%}
+                <tr>
+                <td>{{row[0]}}</td>
+                <td>{{row[1]}}</td>
+                <td>{{row[2]}}</td>
+                <td>{{row[3]}}</td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+    <h2>Créer une nouvelle entrée</h2>
+        <form action="/create" method="post">
+            <input type="text" name="name" placeholder="name">
+            <input type="text" name="description" placeholder="description">
+            <input type="text" name="email" placeholder="email">
+            <input type="submit" value="Créer">
+        </form>  
+    <h2>Update une entrée</h2>
+        <table>
+            <thead>
+                <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for row in data%}
+                <tr>
+                   <td> 
+                    <form action="/update" method="post">
+                        <label>{{row[0]}}<label>
+                        <input type="hidden" name="id" value="{{row[0]}}">
+                        <input type="text" name="name" value="{{row[1]}}">
+                        <input type="text" name="description" value="{{row[2]}}">
+                        <input type="text" name="email" value="{{row[3]}}">
+                        <input type="submit" value="Update">
+                    </form> 
+                    </td>
+                    <td>
+                        <form action="/delete" method="post">
+                            <input type="hidden" name="id" value="{{row[0]}}">
+                            <input type="submit" value="Supprimer">
+                        </form>   
+                    </td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+</body>
+</html>

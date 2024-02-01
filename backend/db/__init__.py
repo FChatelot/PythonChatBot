@@ -1,0 +1,1 @@
+#me sert à initialiser ma db. Je poeux récupréer la fonction db_conn et la réutiliser ensuite dans mon serveur.
