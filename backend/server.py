@@ -56,14 +56,10 @@ def delete():
     conn = db_conn()
     cursor = conn.cursor()
     id = request.form["id"]
-    cursor.execute('''DELETE FROM rooms WHERE id={0}'''.format(id))
+    cursor.execute('''DELETE FROM rooms WHERE id={0}'''.format(id))#ici format parce que j'ai eu des erreurs de formatage avec %s qui bloquaient les requetes de delete
     conn.commit()
     cursor.close()
     conn.close()
     return redirect(url_for('index'))
 
-    
-#https://www.youtube.com/watch?v=tBmRjtoEBzw
 
-#https://github.com/tecladocode/rooms-temp-rest-api?ref=blog.teclado.com
-#https://blog.teclado.com/first-rest-api-flask-postgresql-python/
