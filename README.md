@@ -1,4 +1,4 @@
-#PythonChatBot
+# PythonChatBot
 
 ## A savoir:
 Cette app est encore en développement. Elle fonctionne avec du PostGreSQL et flask et je vais y ajouter un chatbot.
